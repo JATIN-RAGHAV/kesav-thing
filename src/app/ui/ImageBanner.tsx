@@ -5,15 +5,17 @@ const ImageBanner = () => {
 
   const settings = {
     dots: true,
+    autoplay: true,
     infinite: true,
-    speed: 500,
+    speed: 1500,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slideToScroll: 1
   }
-  const imgUrl = ['banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg', 'banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg']
+  const imgUrl = ['banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg']
 
   return (
-    <Slider {...settings}>
+    <Slider {...settings} >
       {imgUrl.map((imgU, i) => {
         return <Image imgUrl={imgU} key={i} />
       })}
@@ -24,7 +26,6 @@ const ImageBanner = () => {
 const Image = ({ imgUrl }: { imgUrl: string }) => {
   return (<img
     src={imgUrl}
-    className="w-full aspect-video flex-grow flex-shrink snap-start"
   />)
 }
 

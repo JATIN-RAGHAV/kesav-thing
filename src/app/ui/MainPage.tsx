@@ -3,7 +3,7 @@ import ImageBanner from "./ImageBanner";
 
 const MainPage = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <TopPanel />
       <ImageBanner />
     </div>

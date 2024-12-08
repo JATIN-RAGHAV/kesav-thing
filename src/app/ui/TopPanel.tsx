@@ -1,8 +1,5 @@
 const TopPanel = () => {
-  return (
-    <div className="w-full h-[40px]">
-      <DropDown />
-    </div>
+  return (<></>
   )
 }
 
