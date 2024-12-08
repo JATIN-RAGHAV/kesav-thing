@@ -3,10 +3,10 @@ const ProductPamphelt = ({ imgFront, imgBack, title, mrp, discount }: { imgFront
   return (
     <div className="m-1 p-1 flex flex-col items-center box-border max-w-[400px] flex-grow min-w-[300px] bg-white rounded-lg h-[400px]" >
       <div className="w-max pt-4 relative h-full">
-        <div className="group/img overflow-hidden w-[200px] h-[300px] relative">
-          <div className="w-[200px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-md overflow-hidden">
-            <img src={imgFront} className="rounded-md group-hover/img:opacity-0 group-hover/img:hidden w-[300px]" />
-            <img src={imgBack} className="rounded-md hidden group-hover/img:opacity-100 group-hover/img:block w-[300px]" />
+        <div className="overflow-hidden relative w-[200px] h-[300px] rounded-md">
+          <img src={imgFront} className="rounded-md z-0 w-[300px]" />
+          <div className="w-[200px] hover:w-[300px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-md overflow-hidden z-10 h-full flex justify-center items-center opacity-0 ease-in-out duration-700 hover:opacity-100 transition-all">
+            <img src={imgBack} className="rounded-md  w-full" />
           </div>
         </div>
         <div className="h-[60px] absolute bottom-0">

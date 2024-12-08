@@ -15,11 +15,13 @@ const ImageBanner = () => {
   const imgUrl = ['banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg']
 
   return (
-    <Slider {...settings} >
-      {imgUrl.map((imgU, i) => {
-        return <Image imgUrl={imgU} key={i} />
-      })}
-    </Slider>
+    <div className='mb-5 '>
+      <Slider {...settings} >
+        {imgUrl.map((imgU, i) => {
+          return <Image imgUrl={imgU} key={i} />
+        })}
+      </Slider>
+    </div>
   )
 }
 
