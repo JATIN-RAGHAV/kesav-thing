@@ -27,8 +27,8 @@ const things = [
 const ThingsCounter = () => {
   return (
     <div className="h-[100px] bg-white flex items-center justify-around">
-      {things.map(thing => {
-        return <Counter {...thing} />
+      {things.map((thing, index) => {
+        return <Counter key={index}{...thing} />
       })}
     </div>
   )
@@ -37,12 +37,14 @@ const ThingsCounter = () => {
 const Counter = ({ imgUrl, number, title }: { imgUrl: string, number: number, title: string }) => {
   const [count, setCount] = useState<number>(0);
   useEffect(() => {
-    setCount(c => {
-      if (c < number) {
-        return c + 40;
-      }
-      return number;
-    })
+    if (count < number) {
+      setCount(c => {
+        if (c < number) {
+          return c + 40;
+        }
+        return number;
+      })
+    }
   }, [count])
   return (
     <div className="flex items-center">

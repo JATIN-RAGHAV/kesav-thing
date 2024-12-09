@@ -1,7 +1,7 @@
-const ProductPamphelt = ({ imgFront, imgBack, title, mrp, discount }: { imgFront: string, imgBack: string, title: string, mrp: number, discount: number }) => {
+const ProductPamphelt = ({ imgFront, imgBack, title, mrp, discount, featured }: { imgFront: string, imgBack: string, title: string, mrp: number, discount: number, featured: boolean }) => {
   const price = mrp - (mrp * (discount / 100))
   return (
-    <div className="m-1 p-1 flex flex-col items-center box-border max-w-[400px] flex-grow min-w-[300px] bg-white rounded-lg h-[400px]" >
+    <div className="m-1 p-1 flex flex-col items-center box-border max-w-[400px] flex-grow min-w-[300px] bg-white relative rounded-lg h-[400px]" >
       <div className="w-max pt-4 relative h-full">
         <div className="overflow-hidden relative w-[200px] h-[300px] rounded-md">
           <img src={imgFront} className="rounded-md z-0 w-[300px]" />
@@ -17,7 +17,10 @@ const ProductPamphelt = ({ imgFront, imgBack, title, mrp, discount }: { imgFront
           </div>
         </div>
       </div>
-    </div>
+      <div className={`absolute flex h-[30px] w-[40px] justify-center items-center ${featured ? '' : 'hidden'} top-0 left-0 text-white text-xs`} >
+        <img src="/featuredTag.png" className="absolute top-[-15px]" />
+      </div>
+    </div >
   )
 }
 
