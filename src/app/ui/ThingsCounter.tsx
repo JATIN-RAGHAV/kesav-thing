@@ -1,5 +1,5 @@
 'use client'
-import { Children, useEffect, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 
 const things = [
   {
@@ -35,17 +35,16 @@ const ThingsCounter = () => {
 }
 
 const Counter = ({ imgUrl, number, title }: { imgUrl: string, number: number, title: string }) => {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState(0);
   useEffect(() => {
-    if (count < number) {
-      setCount(c => {
-        if (c < number) {
-          return c + 40;
-        }
-        return number;
-      })
-    }
-  }, [count])
+    const interval = setInterval(() => {
+      if (count < number) setCount(count => count + 500)
+    }, 1);
+    setTimeout(() => {
+      clearInterval(interval)
+      setCount(number)
+    }, 1000)
+  }, [])
   return (
     <div className="flex items-center">
       <div className="rounded-2xl h-[40px] w-[40px]">

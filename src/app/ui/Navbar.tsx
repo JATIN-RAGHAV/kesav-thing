@@ -15,7 +15,7 @@ const Navbar = () => {
   }]
 
   return (
-    <div className="sticky top-0 z-40 justify-between bg-[#0c77b6] w-full h-[60px] flex items-center">
+    <div className="sticky top-0 z-40 justify-between bg-[#0c77b6] w-full h-[70px] flex items-center">
       <div className=" flex items-center w-36 mx-2">
         <img src="/logo.svg" height='80px' width='140px' />
       </div>
