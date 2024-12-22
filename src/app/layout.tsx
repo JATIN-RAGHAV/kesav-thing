@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./ui/Navbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "./ui/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="bg-gray-200">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

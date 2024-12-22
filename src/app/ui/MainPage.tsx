@@ -5,10 +5,6 @@ import ProductsRow from "./ProductsRow";
 import Footer from './Footer'
 import OurParteners from "./OurParteners";
 import CategoryBar from "./CategoryBar";
-import ImageSlider from "./ImageSlider";
-
-
-
 
 const MainPage = () => {
   return (

@@ -1,4 +1,5 @@
 import { Children, PropsWithChildren } from "react"
+import { Instagram } from 'lucide'
 
 const iconsUrls = ['/footerIcon1.png', '/footerIcon2.png', '/footerIcon3.png', '/footerIcon4.png', '/footerIcon5.svg']
 
@@ -80,9 +81,6 @@ const Footer = () => {
           <img src="/logo.svg" className="h-full" />
         </div>
         <div className="flex justify-evenly">
-          {iconsUrls.map(icon => {
-            return <Icons iconUrl={icon} />
-          })}
         </div>
       </div>
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
@@ -112,6 +110,9 @@ const Footer = () => {
   )
 }
 
+// {iconsUrls.map(icon => {
+//   return <Icons iconUrl={icon} />
+// })}
 const Icons = ({ iconUrl }: { iconUrl: string }) => {
   return (
     <div className="h-[30px] w-[30px] mx-1">
