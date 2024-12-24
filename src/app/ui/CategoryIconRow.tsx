@@ -1,27 +1,46 @@
+'use client'
+import axios from "axios"
+import { useEffect } from "react"
 
 const categoryIcons = [
   {
-    imgUrl: '/onePieceLogo.jpg',
+    imgUrl: '/category1.png',
     redirectUrl: '/'
   },
   {
-    imgUrl: '/berserkLogo.png',
+    imgUrl: '/category2.png',
     redirectUrl: '/'
   },
   {
-    imgUrl: '/gintamaLogo.jpg',
+    imgUrl: '/category3.png',
     redirectUrl: '/'
   },
   {
-    imgUrl: '/vinlandSaga.jpg',
+    imgUrl: '/category4.png',
+    redirectUrl: '/'
+  },
+  {
+    imgUrl: '/category5.png',
     redirectUrl: '/'
   },
 ]
 const CategoryIconRow = () => {
-  return (<div className="flex w-full h-[150px] bg-white my-2 items-center justify-evenly">
-    {categoryIcons.map(category => {
-      return <CategoryIcon {...category} />
-    })}
+  useEffect(() => {
+    const getCategories = async () => {
+      const result = await axios.get('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/categories')
+      console.log(result)
+    }
+    getCategories();
+  }, [])
+  return (<div>
+    <div className='flex items-center font-bold justify-center text-4xl p-1 box-border'>
+      Categories
+    </div>
+    <div className="flex w-full h-[150px] bg-white my-2 items-center justify-evenly">
+      {categoryIcons.map((category, index) => {
+        return <CategoryIcon key={index} {...category} />
+      })}
+    </div>
   </div>)
 }
 

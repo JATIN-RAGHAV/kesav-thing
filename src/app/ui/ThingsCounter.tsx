@@ -3,7 +3,7 @@ import { Children, useEffect, useRef, useState } from "react";
 
 const things = [
   {
-    imgUrl: '/thingEmoji1.png',
+    imgUrl: '/productsSold.svg',
     title: 'PRODUCTS SOLD',
     number: 150000
   },
@@ -13,14 +13,9 @@ const things = [
     number: 20000
   },
   {
-    imgUrl: '/thingEmoji3.png',
-    title: 'CO2 REDUCED',
-    number: 285230
-  },
-  {
-    imgUrl: '/skull.svg',
-    title: 'HUMANS KILLED',
-    number: 200000
+    imgUrl: '/thingEmoji1.png',
+    title: 'HAPPY CUSTOMERS',
+    number: 20000
   },
 ]
 

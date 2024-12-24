@@ -1,5 +1,5 @@
-import { Children, PropsWithChildren } from "react"
-import { Instagram } from 'lucide'
+import { PropsWithChildren } from "react"
+import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react'
 
 const iconsUrls = ['/footerIcon1.png', '/footerIcon2.png', '/footerIcon3.png', '/footerIcon4.png', '/footerIcon5.svg']
 
@@ -9,37 +9,25 @@ const footerContents = [
     labels: [{
       lable: 'About GuptaSwitches',
       redirectsTo: '/',
-    }, {
-      lable: 'Refurbishing Story',
-      redirectsTo: '/',
-    }, {
-      lable: 'Our Story',
-      redirectsTo: '/',
-    }, {
-      lable: 'Affiliated Story',
-      redirectsTo: '/',
-    }, {
-      lable: 'Referral Story',
-      redirectsTo: '/',
     }]
   },
   {
     header: 'Our Products',
     labels: [{
-      lable: 'Laptop',
-      redirectsTo: '/',
+      lable: 'ACB',
+      redirectsTo: '/ACB',
     }, {
-      lable: 'Desktop',
-      redirectsTo: '/',
+      lable: 'MCCB',
+      redirectsTo: '/MCCB',
     }, {
-      lable: 'Mini Pc',
-      redirectsTo: '/',
+      lable: 'Overload Relay',
+      redirectsTo: '/OVERLOAD_RELAY',
     }, {
-      lable: 'Computer',
-      redirectsTo: '/',
+      lable: 'Power Contactors',
+      redirectsTo: '/POWER_CONTRACTOR',
     }, {
-      lable: 'Shit House',
-      redirectsTo: '/',
+      lable: 'Wires & Cables',
+      redirectsTo: '/WIRES_AND_CABLES',
     }]
   },
   {
@@ -64,11 +52,17 @@ const footerContents = [
   {
     header: 'Contact ',
     labels: [{
-      lable: '+91-6969696969 (Your Mum)',
+      lable: '+91 9717419853',
       redirectsTo: '/',
     }, {
-      lable: 'support@MyDk.cum',
+      lable: '+91 9311440607',
       redirectsTo: '/',
+    }, {
+      lable: '+91 9818091111',
+      redirectsTo: '/',
+    }, {
+      lable: 'info@guptaswitchgears.com',
+      redirectsTo: 'mailto:guptaswitchgears.com',
     }]
   }
 ]
@@ -80,7 +74,11 @@ const Footer = () => {
         <div className="h-[45px] box-border ">
           <img src="/logo.svg" className="h-full" />
         </div>
-        <div className="flex justify-evenly">
+        <div className="flex gap-3 justify-evenly ">
+          <Instagram />
+          <Twitter />
+          <Linkedin />
+          <Facebook />
         </div>
       </div>
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
@@ -110,9 +108,6 @@ const Footer = () => {
   )
 }
 
-// {iconsUrls.map(icon => {
-//   return <Icons iconUrl={icon} />
-// })}
 const Icons = ({ iconUrl }: { iconUrl: string }) => {
   return (
     <div className="h-[30px] w-[30px] mx-1">

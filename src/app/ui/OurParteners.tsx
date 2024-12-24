@@ -1,7 +1,7 @@
 'use client'
 import Slider from 'react-slick'
 
-const Parteners = ['/partner1.jpg', '/partner2.jpg', '/partner3.jpg', '/partner4.jpg', '/partner5.png']
+const Parteners = ['/partner1.png', '/partner2.png', '/partner3.png', '/partner4.png', '/partner5.jpg']
 
 const OurParteners = () => {
 
@@ -15,7 +15,7 @@ const OurParteners = () => {
   }
 
   return (
-    <div className='my-4 px-2 h-[200px] bg-white box-border'>
+    <div className='my-4 h-[200px] bg-white box-border px-40'>
       <div className='flex items-center font-bold justify-center text-4xl p-1 box-border'>
         Our Partners
       </div>

@@ -16,9 +16,9 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-40 justify-between bg-[#0c77b6] w-full h-[70px] flex items-center">
-      <div className=" flex items-center w-36 mx-2">
+      <a href="/" className=" flex items-center w-36 mx-2">
         <img src="/logo.svg" height='80px' width='140px' />
-      </div>
+      </a>
 
       <div className="max-w-lg w-full h-[30px] flex items-center relative">
         <img src="/search-icon.png" className="absolute h-1/2 ml-2" />
