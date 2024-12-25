@@ -89,8 +89,8 @@ const Footer = () => {
               <div className="w-[250px]" key={index}>
                 <Heading>{block.header}</Heading>
                 <div className="w-max">
-                  {block.labels.map(label => {
-                    return <Label redirectsTo={label.redirectsTo}>{label.lable}</Label>
+                  {block.labels.map((label, index) => {
+                    return <Label key={index} redirectsTo={label.redirectsTo}>{label.lable}</Label>
                   })}
                 </div>
               </div>

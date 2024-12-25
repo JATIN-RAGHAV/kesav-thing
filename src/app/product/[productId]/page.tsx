@@ -1,3 +1,5 @@
+import ProductPage from "@/app/ui/ProductPage"
+
 export default async function(
 	{ params }: {
 		params: Promise<{ productId: string }>
@@ -5,8 +7,6 @@ export default async function(
 ) {
 	const { productId } = await params
 	return (
-		<div>
-			productId:{productId}
-		</div>
+		<ProductPage productId={productId} />
 	)
 }

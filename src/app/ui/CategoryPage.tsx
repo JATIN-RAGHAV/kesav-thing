@@ -12,7 +12,7 @@ export default async function CategoryPage({ category }: { category: string }) {
   const bannerId = (await fetch('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/categories').then(res => res.json()) as categoryInterface[]).filter(categor => categor.name == category)[0].billboardId;
 
   return (
-    <div className="flex flex-col items-center overflow-scroll h-[800px]">
+    <div className="flex flex-col items-center">
       <CategoryBanner bannerId={bannerId} />
       <ProductFullRow products={products} />
     </div>
