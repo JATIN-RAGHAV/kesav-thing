@@ -2,6 +2,7 @@ import React from 'react'
 import { product } from '../interfaces/product';
 import poles from '../interfaces/poles';
 import currentRatingInterface from '../interfaces/currentRating';
+import fetchProducts from "../lib/fetchProducts";
 
 export const revalidate = 3600;
 
@@ -12,7 +13,8 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
   const currentCurrentId = product.currentRatingId;
   const currentPoleId = product.polesId;
 
-  const AllProducts = await fetch('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/products', { cache: 'force-cache' }).then(res => res.json()) as product[]
+  console.log(`Started fetching products ${Date.now() - startTime}`)
+  const AllProducts = await fetchProducts();
   console.log(`Got products in ${Date.now() - startTime}`);
   const ourProducts = AllProducts.filter(prdt => {
     return (prdt.categoryId == categoryId && prdt.brandId == brandId)
@@ -86,7 +88,7 @@ const CurrentDiv = ({ name, url }: { name: string, url: string }) => {
 
 const PolesDiv = ({ name, url }: { name: string, url: string }) => {
   return (
-    <a href={url} className='h-[30px] w-[30px] bg-themeBlue text-white p-0 rounded-full flex items-center justify-center'>{name}</a>
+    <a href={url} className='h-[30px] w-max px-2 bg-themeBlue text-white p-0 rounded-full flex items-center justify-center'>{name}</a>
   )
 }
 
