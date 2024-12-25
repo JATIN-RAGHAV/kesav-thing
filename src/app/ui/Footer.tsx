@@ -84,9 +84,9 @@ const Footer = () => {
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
       <div className="flex ">
         <div className="flex m-1">
-          {footerContents.map(block => {
+          {footerContents.map((block, index) => {
             return (
-              <div className="w-[250px]">
+              <div className="w-[250px]" key={index}>
                 <Heading>{block.header}</Heading>
                 <div className="w-max">
                   {block.labels.map(label => {
