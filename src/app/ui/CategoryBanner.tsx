@@ -1,4 +1,3 @@
-
 const CategoryBanner = async ({ bannerId }: { bannerId: string }) => {
 
   let url = ''
