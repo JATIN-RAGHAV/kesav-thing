@@ -3,16 +3,21 @@ import { product } from '../interfaces/product';
 import poles from '../interfaces/poles';
 import currentRatingInterface from '../interfaces/currentRating';
 
+export const revalidate = 3600;
+
 const CustomizeProducts = async ({ product }: { product: product }) => {
+  const startTime = Date.now();
   const brandId = product.brandId
   const categoryId = product.categoryId
   const currentCurrentId = product.currentRatingId;
   const currentPoleId = product.polesId;
 
-  const AllProducts = await fetch('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/products').then(res => res.json()) as product[]
+  const AllProducts = await fetch('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/products', { cache: 'force-cache' }).then(res => res.json()) as product[]
+  console.log(`Got products in ${Date.now() - startTime}`);
   const ourProducts = AllProducts.filter(prdt => {
     return (prdt.categoryId == categoryId && prdt.brandId == brandId)
   })
+  console.log(`Sorted products in ${Date.now() - startTime}`)
 
   let poles: poles[] = [];
   let currentRatings: currentRatingInterface[] = [];
@@ -43,14 +48,17 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
     }
   }
 
+  console.log(`made links in ${Date.now() - startTime}`)
 
   currentRatings.sort((a, b) => parseInt(a.name) - parseInt(b.name));
   poles.sort((a, b) => parseInt(a.name) - parseInt(b.name));
 
+  const endTime = Date.now();
+  console.log(`Time taken = ${endTime - startTime}`)
   return (
     <div className='flex flex-col gap-6'>
       <h4 className='font-medium'>Choose a current rating</h4>
-      <div className='flex items-center gap-3 max-w-[500px] h-[60px] overflow-x-scroll scroll-smoothk'>
+      <div className='flex items-center gap-3 w-full h-[65px] overflow-x-scroll scroll-smooth flex-shrink-0'>
         {currentRatings.map(current => {
           return (<CurrentDiv name={current.name} url={currentToProduct[current.id].url} key={current.id} />)
         })}
@@ -66,15 +74,19 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
   )
 }
 
-const PolesDiv = ({ name, url }: { name: string, url: string }) => {
+const CurrentDiv = ({ name, url }: { name: string, url: string }) => {
   return (
-    <a href={url} className='h-[30px] w-[40px] bg-themeBlue text-white p-0 rounded-full flex items-center justify-center'>{name}</a>
+    <a href={url} >
+      <div className='h-[30px] w-max px-2 bg-themeBlue text-white rounded-full flex items-center justify-center'>
+        {name}
+      </div>
+    </a>
   )
 }
 
-const CurrentDiv = ({ name, url }: { name: string, url: string }) => {
+const PolesDiv = ({ name, url }: { name: string, url: string }) => {
   return (
-    <a href={url} className='h-[30px] w-10 bg-themeBlue text-white rounded-full flex items-center justify-center'>{name}</a>
+    <a href={url} className='h-[30px] w-[30px] bg-themeBlue text-white p-0 rounded-full flex items-center justify-center'>{name}</a>
   )
 }
 
