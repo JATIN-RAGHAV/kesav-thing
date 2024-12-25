@@ -1,7 +1,3 @@
-'use client'
-import axios from "axios"
-import { useEffect } from "react"
-
 const categoryIcons = [
   {
     imgUrl: '/category1.png',
@@ -25,13 +21,6 @@ const categoryIcons = [
   },
 ]
 const CategoryIconRow = () => {
-  useEffect(() => {
-    const getCategories = async () => {
-      const result = await axios.get('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/categories')
-      console.log(result)
-    }
-    getCategories();
-  }, [])
   return (<div>
     <div className='flex items-center font-bold justify-center text-4xl p-1 box-border'>
       Categories

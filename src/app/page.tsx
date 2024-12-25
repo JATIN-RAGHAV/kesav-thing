@@ -2,7 +2,7 @@ import ImageBanner from "./ui/ImageBanner";
 import CategoryIconRow from "./ui/CategoryIconRow";
 import ThingsCounter from "./ui/ThingsCounter";
 import OurParteners from "./ui/OurParteners";
-import FeaturedProducts from "./ui/FeaturedProducts";
+import FeaturedProductsServer from "./ui/FeaturedProductsServer";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <div className="overflow-hidden">
         <ImageBanner />
         <ThingsCounter />
-        <FeaturedProducts />
+        <FeaturedProductsServer />
         <CategoryIconRow />
         <OurParteners />
       </div>

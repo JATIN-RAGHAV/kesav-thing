@@ -1,24 +1,13 @@
 'use client'
-import React, { useEffect, useState, useRef } from "react";
-import axios from 'axios'
+import React, { useRef } from "react";
 import ProductPamphlet from "./ProductPamphlet";
-import { product } from "./ProductPamphlet";
+import { product } from "../interfaces/product";
 import ProductShimmer from "./ProductShimmer";
 import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from "lucide-react";
 
-function FeaturedProducts() {
-
+function FeaturedProductsClient({ products }: { products: product[] }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const [products, setProducts] = useState<product[]>([])
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = (await axios.get('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/products/featuredProducts')).data as product[]
-      setProducts(response);
-    }
-    getData();
-  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollContainerRef.current
@@ -89,4 +78,5 @@ function FeaturedProducts() {
   )
 }
 
-export default FeaturedProducts; 
+
+export default FeaturedProductsClient;
