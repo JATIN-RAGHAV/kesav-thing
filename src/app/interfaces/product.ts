@@ -1,3 +1,9 @@
+import brand from "./brand"
+import category from "./category"
+import currentRatingInterface from "./currentRating"
+import imageInterface from "./image"
+import poles from "./poles"
+
 export interface product {
 	id: string,
 	storeId: string,
@@ -14,43 +20,9 @@ export interface product {
 	polesId: string,
 	createdAt: string,
 	updatedAt: string,
-	images: {
-		id: string,
-		productsId: string,
-		url: string,
-		createdAt: string,
-		updatedAt: string
-	}[],
-	category: {
-		id: string,
-		storeId: string,
-		billboardId: string,
-		name: string,
-		createdAt: string,
-		updatedAt: string
-	},
-	currentRating: {
-		id: string,
-		storeId: string,
-		name: string,
-		values: string,
-		createdAt: string,
-		updatedAt: string
-	},
-	poles: {
-		id: string,
-		storeId: string,
-		name: string,
-		value: string,
-		createdAt: string,
-		updatedAt: string
-	},
-	brand: {
-		id: string,
-		storeId: string,
-		billboardId: string,
-		name: string,
-		createAt: string,
-		updatedAt: string
-	}
+	images: imageInterface[],
+	category: category,
+	currentRating: currentRatingInterface,
+	poles: poles,
+	brand: brand
 }
