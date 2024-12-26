@@ -26,8 +26,4 @@ const CategoryButton = ({ name, link }: { name: string, link: string }) => {
   )
 }
 
-const LittleBar = () => {
-  return <div className="w-[17px] h-[2px] bg-black"></div>
-}
-
 export default CategoryBar;

@@ -18,11 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gray-200">
-        <Navbar />
-        <CategoryBar />
-        {children}
-        <Footer />
+      <body >
+        <div className="">
+          <Navbar />
+          <CategoryBar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

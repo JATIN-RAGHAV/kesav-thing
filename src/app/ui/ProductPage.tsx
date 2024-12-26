@@ -1,12 +1,13 @@
 import ProductImages from "./ProductImages"
 import CustomizeProducts from "./CustomizeProduct"
 import { product } from "../interfaces/product";
+import fetchProduct from "../lib/fetchProduct";
 
 export const revalidate = 3600;
 
 const ProductPage = async ({ productId }: { productId: string }) => {
 
-  const product = await fetch('https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/products/' + productId, { cache: 'force-cache' }).then(res => res.json()) as product
+  const product = await fetchProduct(productId)
   const images = product.images.map(image => {
     return {
       id: image.id,
@@ -15,7 +16,7 @@ const ProductPage = async ({ productId }: { productId: string }) => {
   })
 
   return (
-    <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16 my-16'>
+    <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16 my-16 bg-white'>
       <div className='w-full lg:w-1/2 lg:sticky top-20 h-max'>
         <ProductImages images={images} />
       </div>
