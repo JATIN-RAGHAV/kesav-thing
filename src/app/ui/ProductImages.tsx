@@ -17,7 +17,7 @@ const ProductImages = ({ images }: { images: imageInterface[] }) => {
         <Image src={images[index].url}
           alt='image'
           fill
-          className='object-cover rounded-md'
+          className='object-cover rounded-md border'
           sizes='50vw' />
 
       </div>
@@ -29,7 +29,7 @@ const ProductImages = ({ images }: { images: imageInterface[] }) => {
             <Image src={img.url}
               alt='image'
               fill
-              className='object-cover rounded-md'
+              className='object-cover rounded-md border'
               sizes='30vw' />
           </div>
         ))}

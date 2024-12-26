@@ -1,6 +1,5 @@
 import ProductImages from "./ProductImages"
 import CustomizeProducts from "./CustomizeProduct"
-import { product } from "../interfaces/product";
 import fetchProduct from "../lib/fetchProduct";
 
 export const revalidate = 3600;
@@ -14,6 +13,7 @@ const ProductPage = async ({ productId }: { productId: string }) => {
       url: image.url
     }
   })
+  const discount: number = Math.round(((parseInt(product.mPrice) - parseInt(product.price)) / parseInt(product.mPrice)) * 100)
 
   return (
     <div className='px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16 my-16 bg-white'>
@@ -23,9 +23,12 @@ const ProductPage = async ({ productId }: { productId: string }) => {
       <div className='w-full lg:w-1/2 flex flex-col gap-6'>
         <h1 className='text-4xl font-medium'>{product.name}</h1>
         <div className='h-[2px] bg-gray-100' />
-        <div className='flex items-center gap-4'>
-          <h3 className='text-xl text-gray-500 line-through'>₹{product.mPrice}</h3>
-          <h2 className='font-medium text-2xl'>₹{product.price}</h2>
+        <div>
+          <div className='flex items-center gap-4'>
+            <h3 className='text-xl text-gray-500 line-through'>₹{product.mPrice}</h3>
+            <h2 className='font-medium text-2xl'>₹{product.price}</h2>
+          </div>
+          <span className="px-4 py-2 text-red-700 font-light text-sm">(-{discount}% OFF)</span>
         </div>
         <div className='h-[2px] bg-gray-100' />
         <CustomizeProducts product={product} />

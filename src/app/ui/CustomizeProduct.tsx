@@ -1,8 +1,6 @@
 import React from 'react'
 import { product } from '../interfaces/product';
-import poles from '../interfaces/poles';
-import currentRatingInterface from '../interfaces/currentRating';
-import fetchProducts from "../lib/fetchProducts";
+import fetchCustimizeProduct from '../lib/fetchCustimizeProduct';
 
 export const revalidate = 3600;
 
@@ -14,23 +12,22 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
   const currentPoleId = product.polesId;
 
   console.log(`Started fetching products ${Date.now() - startTime}`)
-  const AllProducts = await fetchProducts();
+  const AllProducts = await fetchCustimizeProduct();
   console.log(`Got products in ${Date.now() - startTime}`);
   const ourProducts = AllProducts.filter(prdt => {
-    return (prdt.categoryId == categoryId && prdt.brandId == brandId)
+    return (prdt.category.id == categoryId && prdt.brand.id == brandId)
   })
   console.log(`Sorted products in ${Date.now() - startTime}`)
 
-  let poles: poles[] = [];
-  let currentRatings: currentRatingInterface[] = [];
-  let poleToProduct: { [key: string]: { url: string, name: string, id: string } } = {};
-  let currentToProduct: { [key: string]: { url: string, name: string, id: string } } = {};
+  let poles: { name: string, id: string }[] = [];
+  let currentRatings: { name: string, id: string }[] = [];
+  let poleToProduct: { [key: string]: { url: string, id: string } } = {};
+  let currentToProduct: { [key: string]: { url: string, id: string } } = {};
 
   for (let prdt of ourProducts) {
-    if (currentCurrentId == prdt.currentRatingId) {
-      if (!poleToProduct[prdt.polesId]) {
-        poleToProduct[prdt.polesId] = {
-          name: prdt.name,
+    if (currentCurrentId == prdt.currentRating.id) {
+      if (!poleToProduct[prdt.poles.id]) {
+        poleToProduct[prdt.poles.id] = {
           id: prdt.id,
           url: '/product/' + prdt.id
         }
@@ -38,10 +35,9 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
       }
     }
 
-    if (currentPoleId == prdt.polesId) {
-      if (!currentToProduct[prdt.currentRatingId]) {
-        currentToProduct[prdt.currentRatingId] = {
-          name: prdt.name,
+    if (currentPoleId == prdt.poles.id) {
+      if (!currentToProduct[prdt.currentRating.id]) {
+        currentToProduct[prdt.currentRating.id] = {
           id: prdt.id,
           url: '/product/' + prdt.id
         }
@@ -93,7 +89,7 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
 }
 
 const CurrentDiv = ({ name, url, isSelected }: { name: string, url: string, isSelected: boolean }) => {
-  const classes = `h-[30px] w-max px-2 rounded-full flex items-center justify-center ${isSelected ? 'bg-white' : 'bg-themeBlue'} ${isSelected && 'text-lg font-bold'} ${isSelected ? 'text-themeBlue' : 'text-white'}`
+  const classes = `h-[30px] w-max px-2 rounded-full flex items-center justify-center ${isSelected ? 'bg-themeBlue text-white' : 'bg-white text-themeBlue border border-themeBlue'} ${isSelected && 'text-lg font-bold'} hover:bg-themeBlue hover:text-white transition-all duration-300`
   return (
     <a href={url} >
       <div className={classes} >
@@ -104,7 +100,7 @@ const CurrentDiv = ({ name, url, isSelected }: { name: string, url: string, isSe
 }
 
 const PolesDiv = ({ name, url, isSelected }: { name: string, url: string, isSelected: boolean }) => {
-  const classes = `h-[30px] w-max px-2 rounded-full flex items-center justify-center ${isSelected ? 'bg-white' : 'bg-themeBlue'} ${isSelected && 'text-lg font-bold'} ${isSelected ? 'text-themeBlue' : 'text-white'}`
+  const classes = `h-[30px] w-max px-2 rounded-full flex items-center justify-center ${isSelected ? 'bg-themeBlue text-white' : 'bg-white text-themeBlue border border-themeBlue'} ${isSelected && 'text-lg font-bold'} hover:bg-themeBlue hover:text-white transition-all duration-300`
   return (
     <a href={url} className={classes} >{name}</a>
   )
