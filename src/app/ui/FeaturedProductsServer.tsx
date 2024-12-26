@@ -6,7 +6,7 @@ export const revalidate = 3600;
 const FeaturedProductsServer = async () => {
   const products = await fetchFeaturedProducts();
   return (
-    <FeaturedProductsClient products={products} />
+    <FeaturedProductsClient products={products} heading="Featured Products" />
   )
 }
 

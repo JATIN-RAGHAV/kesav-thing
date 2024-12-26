@@ -6,7 +6,7 @@ import ProductShimmer from "./ProductShimmer";
 import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from "lucide-react";
 
-function FeaturedProductsClient({ products }: { products: product[] }) {
+function FeaturedProductsClient({ products, heading }: { products: product[], heading: string }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
@@ -46,7 +46,7 @@ function FeaturedProductsClient({ products }: { products: product[] }) {
   return (
     <div className="relative w-full px-4 py-6">
       <div className="mb-6 w-full font-semibold flex justify-center text-gray-900 text-4xl">
-        Featured Products
+        {heading}
       </div>
       <div className="relative">
         <div

@@ -100,7 +100,7 @@ const CurrentDiv = ({ name, url, isSelected }: { name: string, url: string, isSe
 }
 
 const PolesDiv = ({ name, url, isSelected }: { name: string, url: string, isSelected: boolean }) => {
-  const classes = `h-[30px] w-max px-2 rounded-full flex items-center justify-center ${isSelected ? 'bg-themeBlue text-white' : 'bg-white text-themeBlue border border-themeBlue'} ${isSelected && 'text-lg font-bold'} hover:bg-themeBlue hover:text-white transition-all duration-300`
+  const classes = `h-[30px] w-max px-4 rounded-full flex items-center justify-center ${isSelected ? 'bg-themeBlue text-white' : 'bg-white text-themeBlue border border-themeBlue'} ${isSelected && 'text-lg font-bold'} hover:bg-themeBlue hover:text-white transition-all duration-300`
   return (
     <a href={url} className={classes} >{name}</a>
   )
