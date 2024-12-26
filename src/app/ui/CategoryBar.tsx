@@ -10,7 +10,7 @@ const categories = [
 ]
 const CategoryBar = () => {
   return (
-    <div className="h-[45px] w-full bg-white flex items-center box-border relative  justify-evenly border-2">
+    <div className="h-[45px] w-full bg-white flex items-center box-border relative  justify-evenly border-b-2">
       {categories.map((category, index) => {
         return <CategoryButton key={index} {...category} />
       })}

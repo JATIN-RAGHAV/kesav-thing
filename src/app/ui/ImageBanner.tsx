@@ -1,7 +1,11 @@
 'use client'
 import Slider from 'react-slick'
+import fetchBillboards from '../lib/fetchBillboards'
+import { useEffect, useState } from 'react'
+import { isNumber } from 'util'
 
 const ImageBanner = () => {
+  const [images, setImages] = useState<string[]>([]);
 
   const settings = {
     dots: true,
@@ -12,19 +16,36 @@ const ImageBanner = () => {
     slidesToShow: 1,
     slideToScroll: 1
   }
-  const imgUrl = ['banner-1.jpg', 'banner-2.jpg', 'banner-3.jpg']
+
+  useEffect(() => {
+    const banners = async () => {
+      const bannerData = (await fetchBillboards())
+        .filter(billboard => {
+          return parseInt(billboard.label)
+        })
+        .sort((a, b) => parseInt(a.label) - parseInt(b.label))
+        .map(billboard => billboard.imageUrl);
+      setImages(bannerData)
+    }
+    banners();
+  }, [])
+
+  if (images.length == 0) {
+    return (
+      <div>Getting Images</div>
+    )
+  }
 
   return (
     <div className='mb-5 '>
       <Slider {...settings} >
-        {imgUrl.map((imgU, i) => {
+        {images.map((imgU, i) => {
           return <Image imgUrl={imgU} key={i} />
         })}
       </Slider>
     </div>
   )
 }
-
 const Image = ({ imgUrl }: { imgUrl: string }) => {
   return (<img
     src={imgUrl}

@@ -71,17 +71,17 @@ const CustomizeProducts = async ({ product }: { product: product }) => {
   console.log(`Time taken = ${endTime - startTime}`)
   return (
     <div className='flex flex-col gap-6'>
-      <h4 className='font-medium'>Choose a current rating</h4>
-      <div className='flex items-center gap-3 w-full h-[65px] overflow-x-scroll scroll-smooth flex-shrink-0'>
-        {currentRatings.map(current => {
-          return (<CurrentDiv name={current.name} url={currentToProduct[current.id].url} key={current.id} isSelected={currentCurrentId == current.id} />)
-        })}
-      </div>
-      <h4 className='font-medium'>Choose a poles</h4>
+      <h4 className='font-medium'>Choose Pole</h4>
       <div className='flex items-center gap-3'>
         {poles.map(pole => {
           return (<PolesDiv key={pole.id} name={pole.name} url={poleToProduct[pole.id].url
           } isSelected={pole.id == currentPoleId} />)
+        })}
+      </div>
+      <h4 className='font-medium'>Choose Current Rating</h4>
+      <div className='flex items-center gap-3 w-full h-[65px] overflow-x-scroll scroll-smooth flex-shrink-0'>
+        {currentRatings.map(current => {
+          return (<CurrentDiv name={current.name} url={currentToProduct[current.id].url} key={current.id} isSelected={currentCurrentId == current.id} />)
         })}
       </div>
     </div>

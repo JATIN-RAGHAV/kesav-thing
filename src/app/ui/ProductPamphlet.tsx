@@ -9,7 +9,7 @@ const ProductPamphelt = (product: product) => {
   let name = nameArray.length > 35 ? nameArray.splice(0, 35).join('') + '...' : product.name
 
   return (
-    <div className="m-2 p-1 flex flex-col items-center box-border group flex-grow w-[200px] bg-white rounded-lg h-[300px] hover:shadow-xl transition-all" >
+    <div className="m-2 p-1 flex flex-col items-center box-border group flex-grow w-[200px] bg-white rounded-lg h-[320px] hover:shadow-xl transition-all" >
       <a href={'/product/' + product.id}>
         <div className="overflow-hidden relative w-[200px] h-[200px] group-hover:h-[160px] items-center justify-center flex rounded-md transition-all">
           <img src={image} className="rounded-md z-0 w-[200px] group-hover:w-[160px] transition-all" />
