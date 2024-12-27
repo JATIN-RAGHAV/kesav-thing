@@ -2,11 +2,9 @@
 import Slider from 'react-slick'
 import fetchBillboards from '../lib/fetchBillboards'
 import { useEffect, useState } from 'react'
-import { isNumber } from 'util'
 
 const ImageBanner = () => {
   const [images, setImages] = useState<string[]>([]);
-
   const settings = {
     dots: true,
     autoplay: true,
@@ -16,7 +14,6 @@ const ImageBanner = () => {
     slidesToShow: 1,
     slideToScroll: 1
   }
-
   useEffect(() => {
     const banners = async () => {
       const bannerData = (await fetchBillboards())
@@ -29,16 +26,14 @@ const ImageBanner = () => {
     }
     banners();
   }, [])
-
   if (images.length == 0) {
     return (
       <div>Getting Images</div>
     )
   }
-
   return (
     <div className='mb-5 '>
-      <Slider {...settings} >
+      <Slider {...settings} className='h-min overflow-hidden' >
         {images.map((imgU, i) => {
           return <Image imgUrl={imgU} key={i} />
         })}
