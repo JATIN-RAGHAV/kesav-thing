@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Image from "next/image";
+
 const Navbar = () => {
 
   const details = [{
@@ -15,40 +18,33 @@ const Navbar = () => {
   }]
 
   return (
-    <div className="sticky top-0 z-40 justify-between bg-[#0c77b6] w-full h-[70px] flex items-center">
-      <a href="/" className=" flex items-center w-36 mx-2">
-        <img src="/logo.svg" height='80px' width='140px' />
-      </a>
-
-      <div className="max-w-lg w-full h-[30px] flex items-center relative">
-        <img src="/search-icon.png" className="absolute h-1/2 ml-2" />
-        <input className="w-full h-full rounded-3xl px-9 outline-none" />
-        <div className="flex w-14 absolute text-black right-4 font-light text-xs items-center justify-between">
-          <span className="h-full">Clear</span>
-          <img src="/mic-icon.svg" width='25px' />
-        </div>
+    <div className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+      {/* MOBILE */}
+      <div className="h-full flex items-center justify-between md:hidden">
+        <Link href="/">
+          <div className="text-2xl tracking-wide">LAMA</div>
+        </Link>
       </div>
-
-      <div className="mx-2 flex justify-evenly w-40 sm:w-[220px] text-white font-light" >
-        <div className="group relative">
-          <div className="flex w-6 sm:w-40 text-xs items-center">
-            <img src="/call-icon.png" width='20px' />
-            <div className="w-30 mx-1 justify-between hidden sm:block">
-              Talk to our Experts
-            </div>
-            <img src="/down-arrow-icon.png" className="mr-1" width='13px' height='10px' />
-          </div>
-          <div className="absolute w-36 bg-white overflow-hidden max-h-0 group-hover:max-h-[400px] text-black transition-[max-height] ease-in-out duration-500">
-            {details.map((e, index) => {
-              return <Detail key={index} number={e.number} name={e.name} email={e.email} />
-            })}
+      {/* BIGGER SCREENS */}
+      <div className="hidden md:flex items-center justify-between gap-8 h-full">
+        {/* LEFT */}
+        <div className="w-1/3 xl:w-1/2 flex items-center gap-12">
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logo.png" alt="" width={24} height={24} />
+            <div className="text-2xl tracking-wide">LAMA</div>
+          </Link>
+          <div className="hidden xl:flex gap-4">
+            <Link href="/">Homepage</Link>
+            <Link href="/">Shop</Link>
+            <Link href="/">Deals</Link>
+            <Link href="/">About</Link>
+            <Link href="/">Contact</Link>
           </div>
         </div>
-        <img src="/bag-icon.webp" width='20px' className="mx-1" />
-        <img src="/user-icon.png" width='20px' className="mx-1" />
+        {/* RIGHT */}
       </div>
     </div>
-  )
+  );
 }
 
 const Detail = ({ name, number, email }: { name: string, number: string, email: string }) => {
