@@ -53,8 +53,8 @@ function FeaturedProductsClient({ products, heading }: { products: product[], he
           ref={scrollContainerRef}
           className="flex gap-2 overflow-x-auto scrollbar-hide scroll-smooth overflow-y-hidden"
         >
-          {products.map((product) => (
-            <ProductPamphlet key={product.id} {...product} />
+          {products.map((product, index) => (
+            <ProductPamphlet key={index} {...product} />
           ))}
         </div>
         <div className="absolute left-2 w-[20px] h-[20px] top-[50%] translate-y-[-50%] ">

@@ -1,21 +1,14 @@
 'use client'
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import enquiryFormInterface from '../interfaces/enquiryForm';
 
 const Enquiry = () => {
-  const [formData, setFormData] = useState<{
-    name: string,
-    email: string,
-    message: string,
-    imageUrl: string,
-    file: File | null
-  }>({
+  const [formData, setFormData] = useState<enquiryFormInterface>({
     name: '',
     email: '',
     message: '',
-    imageUrl: '',
     file: null
-  });
+  })
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -34,9 +27,9 @@ const Enquiry = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
-      if (file && file.size > 0.05 * 1024 * 1024) {
+      /* if (file && file.size > 0.05 * 1024 * 1024) {
         alert("File size can't be larger than 50kb");
-      }
+      } */
       if (file.type.startsWith('image/')) {
         const reader = new FileReader();
         reader.onload = event => {
@@ -46,8 +39,7 @@ const Enquiry = () => {
             if (typeof (fileContent) == 'string') {
               setFormData({
                 ...formData,
-                imageUrl: fileContent,
-                file: file
+                file
               })
             }
           }
@@ -60,9 +52,11 @@ const Enquiry = () => {
     }
   }
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (formData.imageUrl && formData.name && formData.email && formData.message) {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    /* e.preventDefault();
+
+    alert(await sendEmailAction('this is subject', formData.imageUrl, 'category', true)) */
+    /* if (formData.imageUrl && formData.name && formData.email && formData.message) {
       emailjs.send(
         'service_6gwhl2l', // Replace with your EmailJS service ID
         'template_zik93dy', // Replace with your EmailJS template ID
@@ -86,7 +80,7 @@ const Enquiry = () => {
         });
     } else {
       alert('Fill all the fields')
-    }
+    } */
   };
 
   return (
@@ -125,10 +119,9 @@ const Enquiry = () => {
             accept='image/*'
             onChange={handleFileChange}
           />
-          <span className='text-xs'>{formData.fileSize / 1000}Kb</span>
+          <span className='text-xs'>{formData.file && formData?.file.size / 1000}Kb</span>
         </div>
         <button type="submit" className='w-1/4 bg-themeBlue rounded-lg h-[30px] text-white hover:bg-white hover:text-themeBlue transition-all'>Send Email</button>
-        {formData.imageUrl && <img src={formData.imageUrl} hidden={formData.imageUrl == ''} />}
       </form>
     </div>
   );
