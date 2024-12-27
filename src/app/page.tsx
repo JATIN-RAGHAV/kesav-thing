@@ -26,7 +26,7 @@ export default function Home() {
         <div className="flex justify-center py-2">
           <div className="h-[2px] bg-gray-300 w-11/12" />
         </div>
-        <Enquiry />
+
       </div>
     </div>
   );

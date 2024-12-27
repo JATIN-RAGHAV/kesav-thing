@@ -37,7 +37,7 @@ const ProductPage = async ({ productId }: { productId: string }) => {
               <h3 className='text-xl text-gray-500 line-through'>₹{product.mPrice}</h3>
               <h2 className='font-medium text-2xl'>₹{product.price}</h2>
             </div>
-            <span className="px-4 py-2 text-red-700 font-light text-sm">(-{discount}% OFF)</span>
+            <span className="px-4 py-2 text-red-700 font-light text-sm">({discount}% OFF)</span>
           </div>
           <div className='h-[2px] bg-gray-100' />
           <CustomizeProducts product={product} />

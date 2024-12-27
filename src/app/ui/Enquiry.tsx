@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import enquiryFormInterface from '../interfaces/enquiryForm';
 
@@ -10,19 +10,21 @@ const Enquiry = () => {
     file: null
   })
 
+  const [loading, setLoading] = useState(false);
+
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -43,14 +45,17 @@ const Enquiry = () => {
               })
             }
           }
-        }
-        reader.onerror = error => {
-          console.error(error)
-        }
+        };
+        reader.onerror = (error) => {
+          console.error(error);
+          alert('Error reading the file. Please try again.');
+        };
         reader.readAsDataURL(file);
+      } else {
+        alert('Please upload a valid image file.');
       }
     }
-  }
+  };
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     /* e.preventDefault();

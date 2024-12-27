@@ -1,4 +1,5 @@
 import { product } from '../interfaces/product'
+import AddToCartButton from "@/app/ui/AddToCartButton";
 
 const ProductPamphelt = (product: product) => {
   const price = parseInt(product.price);
@@ -28,7 +29,11 @@ const ProductPamphelt = (product: product) => {
         </div>
       </a>
       <div className="w-[200px] px-4 items-center h-0 overflow-hidden group-hover:h-[60px] justify-evenly flex transition-all">
-        <img src="/cart-icon.png" className="w-[25px] h-[25px] scale-x-[-1]" />
+        <AddToCartButton  price={product.price} mPrice={product.mPrice} id={product.id} isFeatured={product.isFeatured}
+                          gstRate={product.gstRate} currentRatingId={product.currentRatingId} brandId={product.brandId} images={product.images} name={product.name}
+                          storeId={product.storeId} categoryId={product.categoryId} isArchived={product.isArchived}
+                          createdAt={product.createdAt} updatedAt={product.updatedAt}  polesId={product.polesId} poles={product.poles} description={product.description}
+                          brand={product.brand} category={product.category} currentRating={product.currentRating}/>
         <div className="w-max text-xs text-white bg-themeBlue h-[25px] flex items-center justify-center px-2 py-1 rounded-full">
           BUY NOW
         </div>
