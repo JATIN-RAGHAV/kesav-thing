@@ -1,5 +1,5 @@
 import CategoryPage from "@/app/ui/CategoryPage";
 
-export default function ACB() {
+export default function () {
 	return (<CategoryPage category="ACB" />)
 }

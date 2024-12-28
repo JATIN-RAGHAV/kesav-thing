@@ -1,5 +1,5 @@
 import CategoryPage from "@/app/ui/CategoryPage"
 
-export default function OVERLOAD_RELAY() {
+export default function () {
 	return (<CategoryPage category="Overload Relay" />)
 }

@@ -10,18 +10,9 @@ const CartIcon = () => {
         if (cart) {
             setCount(JSON.parse(cart).cartItems.length)
         }
-        const handleCartChange = (value) => {
-            if (value.key == 'cart') {
-                setCount(count + 1);
-            }
-            console.log('change made')
-        }
-        window.addEventListener('storage', handleCartChange)
-        return () => {
-            window.removeEventListener('storage', handleCartChange);
-        }
 
-    }, [localStorage.getItem('cart')])
+
+    }, [])
 
     return (
         <a className="h-[80px] flex items-center justify-center md:pr-10" href="/cart">

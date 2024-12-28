@@ -1,4 +1,5 @@
 'use client'
+
 import { product } from "../interfaces/product"
 import AddToCartButton from "@/app/ui/AddToCartButton";
 
@@ -9,7 +10,7 @@ const ProductPamphletFull = (product: product) => {
   const image = product.images[0].url;
   const name = product.name
   const descriptionArray = product.description.split('')
-  let size = window.innerWidth > 620 ? 150 : 60
+  let size = 60
   const description = descriptionArray.length > size ? descriptionArray.splice(0, size).join('') + '...' : descriptionArray.join('')
 
   return (

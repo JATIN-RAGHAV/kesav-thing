@@ -3,12 +3,12 @@ import Slider from 'react-slick'
 
 const Parteners = ['/partner1.png', '/partner2.png', '/partner3.png', '/partner4.png', '/partner5.jpg']
 
-const slides = window.innerWidth < 620 ? 2 : 5
+
 const OurParteners = () => {
 
   const settings = {
     infinite: true,
-    slidesToShow: slides,
+    slidesToShow: 3,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,

@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/png+xml" sizes="90x90" href="/headlogo.png" />
+        <link rel="icon" type="image/png+xml" sizes="90x90" href="/logo.png" />
       </head>
       <body className="overflow-x-hidden">
         <div>

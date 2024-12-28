@@ -45,7 +45,7 @@ const CategoryBar = () => {
   )
 }
 
-const CategoryButton = ({ name, link, imgUrl }: { name: string, link: string, imgUrl: string }) => {
+const CategoryButton = ({ name, link,  }: { name: string, link: string }) => {
   return (
     <a href={link} className="text-xs font-semibold hover:text-sm hover:shadow-lg transition-all w-full h-full flex justify-center items-center">
       {name}
