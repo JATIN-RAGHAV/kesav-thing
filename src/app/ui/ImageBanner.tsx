@@ -23,6 +23,7 @@ const ImageBanner = () => {
         .sort((a, b) => parseInt(a.label) - parseInt(b.label))
         .map(billboard => billboard.imageUrl);
       setImages(bannerData)
+      console.log(bannerData)
     }
     banners();
   }, [])

@@ -13,6 +13,7 @@
     "@types/react-slick": "^0.23.13",
     "@types/sendgrid": "^4.3.0",
     "axios": "^1.7.9",
+    "clsx": "^2.1.1",
     "fs": "^0.0.1-security",
     "lucide": "^0.468.0",
     "lucide-react": "^0.469.0",
@@ -24,7 +25,9 @@
     "react-hot-toast": "^2.4.1",
     "react-slick": "^0.30.2",
     "sendgrid": "^5.2.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^2.6.0",
+    "tailwind-scrollbar": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

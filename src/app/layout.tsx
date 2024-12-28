@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./ui/Footer";
 import CategoryBar from "./ui/CategoryBar";
-import {GlobalProvider} from "@/app/GlobalProvider";
+import { GlobalProvider } from "@/app/GlobalProvider";
 import ToastProvider from "@/app/providers/toast-provider";
 
 export const metadata: Metadata = {
@@ -20,12 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >
-        <div className="">
+      <body className="overflow-x-hidden">
+        <div>
           <GlobalProvider>
-            <Navbar />
             <CategoryBar />
-            <ToastProvider/>
+            <ToastProvider />
             {children}
             <Footer />
           </GlobalProvider>

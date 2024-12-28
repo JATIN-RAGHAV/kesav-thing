@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Menu from "./Menu";
 
 const Navbar = () => {
 
@@ -24,6 +25,7 @@ const Navbar = () => {
         <Link href="/">
           <div className="text-2xl tracking-wide">LAMA</div>
         </Link>
+        <Menu />
       </div>
       {/* BIGGER SCREENS */}
       <div className="hidden md:flex items-center justify-between gap-8 h-full">

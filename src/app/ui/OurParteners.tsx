@@ -3,11 +3,12 @@ import Slider from 'react-slick'
 
 const Parteners = ['/partner1.png', '/partner2.png', '/partner3.png', '/partner4.png', '/partner5.jpg']
 
+const slides = window.innerWidth < 620 ? 2 : 5
 const OurParteners = () => {
 
   const settings = {
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: slides,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 3000,
@@ -15,8 +16,8 @@ const OurParteners = () => {
   }
 
   return (
-    <div className='my-4 h-[200px] bg-white box-border px-40'>
-      <div className='flex items-center font-bold justify-center text-4xl p-1 box-border'>
+    <div className='my-4 h-[200px] bg-white box-border md:px-20 lg:px-40'>
+      <div className='flex items-center font-bold justify-center text-4xl p-1 box-border overflow-hidden'>
         Our Partners
       </div>
       <Slider {...settings} className='h-[150px] flex items-center bg-white' >

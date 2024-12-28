@@ -15,5 +15,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    //@ts-ignore
+    function({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hidden': {
+          '-ms-overflow-style': 'none', /* Internet Explorer 10+ */
+          'scrollbar-width': 'none', /* Firefox */
+        },
+        '.scrollbar-hidden::-webkit-scrollbar': {
+          display: 'none', /* Safari and Chrome */
+        },
+      });
+    }, require('tailwind-scrollbar'),
+  ],
 } satisfies Config;

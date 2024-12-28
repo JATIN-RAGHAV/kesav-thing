@@ -1,14 +1,14 @@
 "use client";
 
-import React, {useContext} from 'react'
-import {ShoppingCartIcon} from "lucide-react";
-import {product} from "@/app/interfaces/product";
+import React, { useContext } from 'react'
+import { ShoppingCartIcon } from "lucide-react";
+import { product } from "@/app/interfaces/product";
 import CartContext from "@/context/CartContext";
 import toast from "react-hot-toast";
 
-const AddToCartButton = (product:product) => {
+const AddToCartButton = (product: product) => {
     const { addItemToCart } = useContext(CartContext);
-    const toastMessage ="Item added successfully.";
+    const toastMessage = "Item added successfully.";
 
     const addToCartHandler = () => {
 
@@ -24,7 +24,7 @@ const AddToCartButton = (product:product) => {
     }
     return (
         <button onClick={addToCartHandler}>
-            <ShoppingCartIcon/>
+            <ShoppingCartIcon />
         </button>
     )
 }

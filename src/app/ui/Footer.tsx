@@ -69,12 +69,12 @@ const footerContents = [
 
 const Footer = () => {
   return (
-    <div className="h-[380px] bg-[#353332] px-20 py-10 w-full text-white">
-      <div className="h-[70px] flex justify-between ">
-        <div className="h-[45px] box-border ">
+    <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white">
+      <div className="flex justify-between flex-col md:flex-row">
+        <div className="box-border h-[50px] flex justify-center mb-4">
           <img src="/logo.svg" className="h-full" />
         </div>
-        <div className="flex gap-3 justify-evenly ">
+        <div className="flex gap-3 justify-evenly">
           <Instagram />
           <Twitter />
           <Linkedin />
@@ -82,13 +82,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
-      <div className="flex ">
-        <div className="flex m-1">
+      <div >
+        <div className="flex m-1 flex-wrap gap-10 justify-evenly">
           {footerContents.map((block, index) => {
             return (
-              <div className="w-[250px]" key={index}>
+              <div className="flex flex-col max-w-[250px] items-center" key={index}>
                 <Heading>{block.header}</Heading>
-                <div className="w-max">
+                <div className="flex flex-col items-center">
                   {block.labels.map((label, index) => {
                     return <Label key={index} redirectsTo={label.redirectsTo}>{label.lable}</Label>
                   })}
@@ -97,21 +97,7 @@ const Footer = () => {
             )
           })}
         </div>
-        <div>
-          <Heading>
-            Give Your Reviews
-          </Heading>
-          <input className="h-[35px] w-[200px] rounded-full bg-transparent border-white border outline-none px-4 font-thin"></input>
-        </div>
       </div>
-    </div>
-  )
-}
-
-const Icons = ({ iconUrl }: { iconUrl: string }) => {
-  return (
-    <div className="h-[30px] w-[30px] mx-1">
-      <img src={iconUrl} />
     </div>
   )
 }
@@ -121,7 +107,7 @@ const Heading: React.FC<PropsWithChildren> = ({ children }) => {
 }
 
 const Label: React.FC<PropsWithChildren<{ redirectsTo: string }>> = ({ children, redirectsTo }) => {
-  return <a className="block w-max group relative text-sm font-thin my-3 hover:font-bold transition-all" href={redirectsTo}>{children}
+  return <a className="block w-max group relative text-sm font-thin my-1 md:my-3 hover:font-bold transition-all" href={redirectsTo}>{children}
     <span className="absolute w-0 group-hover:w-full transition-all h-[1px] bg-white bottom-0 left-0"></span>
   </a>
 }
