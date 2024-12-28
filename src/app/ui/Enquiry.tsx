@@ -37,10 +37,10 @@ export default function QuotationForm() {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8 p-4 max-w-7xl mx-auto" id='enquiryForm'>
+    <div className="grid lg:grid-cols-2 gap-8 p-4 max-w-7xl mx-auto w-full md:w-auto" id='enquiryForm'>
       <div className="flex flex-col items-center justify-center space-y-8 bg-themeBlue text-white p-8 rounded-lg">
         <img
-          src="/logo.svg"
+          src="/logo.png"
           alt="100% Price Guarantee"
           className="w-48 h-48"
         />

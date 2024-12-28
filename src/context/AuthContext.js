@@ -1,7 +1,7 @@
 "use client"
 
-import {createContext,  useState,} from "react";
-import {useRouter} from "next/navigation";
+import { createContext, useState, } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 
@@ -13,15 +13,16 @@ export const AuthProvider = ({ children }) => {
 
     const router = useRouter();
 
-    const registerUser = async ({name, email, password, number}) => {
+    const registerUser = async ({ name, email, password, number }) => {
         try {
-            const {data} = await axios.post("https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/users",
-                {name, email, password, number})
+            const { data } = await axios.post("https://gupta-backend.vercel.app/api/37b51f00-d824-4384-8ee0-1e8965151640/users",
+                { name, email, password, number })
 
             if (data?.user) {
+                localStorage.setItem('token', data.token)
                 router.push('/')
             }
-        }catch (error){
+        } catch (error) {
             setError(error?.response?.data?.message)
         }
     }
@@ -43,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    return <AuthContext.Provider value={{ user, error, setUser, registerUser ,loginUser}}>
+    return <AuthContext.Provider value={{ user, error, setUser, registerUser, loginUser }}>
         {children}
     </AuthContext.Provider>
 }

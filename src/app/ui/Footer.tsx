@@ -72,7 +72,7 @@ const Footer = () => {
     <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white">
       <div className="flex justify-between flex-col md:flex-row">
         <div className="box-border h-[50px] flex justify-center mb-4">
-          <img src="/logo.svg" className="h-full" />
+          <img src="/logo.png" className="h-full" />
         </div>
         <div className="flex gap-3 justify-evenly">
           <Instagram />

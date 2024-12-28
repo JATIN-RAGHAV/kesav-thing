@@ -11,7 +11,7 @@ export default async function CategoryPage({ category }: { category: string }) {
   const bannerId = (await fetchCategories()).filter(categor => categor.name == category)[0].billboardId;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <CategoryBanner bannerId={bannerId} />
       <ProductFullRow products={products} />
     </div>

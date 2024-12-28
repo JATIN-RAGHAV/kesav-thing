@@ -14,9 +14,9 @@ const ProductFullRow = ({ products }: { products: product[] }) => {
     )
   } else {
     return (
-      <div className="flex flex-col m-10 gap-5 ">
+      <div className="flex flex-col m-10 gap-5 items-center ">
         {products.map((prdt, index) => {
-          return <div key={index}><ProductPamphletFull {...prdt} /></div>
+          return <ProductPamphletFull key={index} {...prdt} />
         })}
       </div>
     )

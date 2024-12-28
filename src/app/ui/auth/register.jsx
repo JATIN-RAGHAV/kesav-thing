@@ -24,7 +24,7 @@ const Register = () => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        registerUser({ name, email, password , number});
+        registerUser({ name, email, password, number });
     };
 
     return (
@@ -90,7 +90,7 @@ const Register = () => {
                     Register
                 </button>
 
-                <hr className="mt-4"/>
+                <hr className="mt-4" />
 
                 <p className="text-center mt-5">
                     Already have an account?

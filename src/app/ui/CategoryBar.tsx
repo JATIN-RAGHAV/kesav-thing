@@ -18,7 +18,7 @@ const CategoryBar = () => {
     setClicked(!clicked)
   }
   return (
-    <div className="h-[45px] w-full bg-white flex items-center box-border relative z-50 justify-evenly border-b-2 ">
+    <div className="h-[45px] w-full bg-white flex items-center box-border relative z-40 justify-evenly border-b-2 ">
       <div className="flex w-full sm:hidden relative" onClick={handleClick}>
         <div className="flex flex-col gap-[3px] mx-3 justify-center mr-2">
           <Bar />
@@ -45,7 +45,7 @@ const CategoryBar = () => {
   )
 }
 
-const CategoryButton = ({ name, link }: { name: string, link: string }) => {
+const CategoryButton = ({ name, link, imgUrl }: { name: string, link: string, imgUrl: string }) => {
   return (
     <a href={link} className="text-xs font-semibold hover:text-sm hover:shadow-lg transition-all w-full h-full flex justify-center items-center">
       {name}
