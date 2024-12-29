@@ -10,8 +10,6 @@ const CartIcon = () => {
         if (cart) {
             setCount(JSON.parse(cart).cartItems.length)
         }
-
-
     }, [])
 
     return (
