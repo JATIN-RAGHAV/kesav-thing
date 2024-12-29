@@ -69,7 +69,7 @@ const footerContents = [
 
 const Footer = () => {
   return (
-    <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white">
+    <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white pb-20 md:pb-4">
       <div className="flex justify-between flex-col md:flex-row">
         <div className="box-border h-[50px] flex justify-center mb-4">
           <img src="/logo.png" className="h-full" />
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
-      <div >
+      <div>
         <div className="flex m-1 flex-wrap gap-10 justify-evenly">
           {footerContents.map((block, index) => {
             return (
@@ -96,9 +96,15 @@ const Footer = () => {
               </div>
             )
           })}
+          <div className="max-w-[250px] flex flex-col items-center">
+            <span className="font-bold text-lg">Reach Us</span>
+            <a href={process.env.GOOGLE_LOCATION} target="_blank">
+              <img src="guptaImages.png" className="h-[200px] w-[200px]" />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

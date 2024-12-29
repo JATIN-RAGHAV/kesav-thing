@@ -5,7 +5,7 @@ import { User } from 'lucide-react';
 const Navbar = () => {
 
   return (
-    <div className="h-20 px-4 bg-themeBlue text-white flex sticky top-0 z-50 justify-between">
+    <div className="h-16 px-4 bg-themeBlue text-white flex sticky top-0 z-50 justify-between">
       {/* CENTER */}
       <a href="/" className="flex h-full items-center">
         <Image src="/logo.png" alt="" width={80} height={80} />

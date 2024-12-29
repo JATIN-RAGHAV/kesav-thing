@@ -26,7 +26,7 @@ const SearchBar = () => {
                 type="text"
                 name="name"
                 placeholder="Search"
-                className="flex-1 bg-transparent outline-none h-1/2"
+                className="flex-1 outline-none h-1/2 text-black"
             />
             <button className="cursor-pointer">
                 <Image src="/search.png" alt="" width={16} height={16} />

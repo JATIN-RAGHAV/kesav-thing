@@ -79,13 +79,13 @@ const Cart = () => {
                                                             className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
                                                             onClick={() => decreaseQty(cartItem)}
                                                         >
-                              <span className="m-auto text-2xl font-thin">
-                                −
-                              </span>
+                                                            <span className="m-auto text-2xl font-thin">
+                                                                −
+                                                            </span>
                                                         </button>
                                                         <input
                                                             type="number"
-                                                            className="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-900  outline-none custom-input-number"
+                                                            className="none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-900  outline-none custom-input-number"
                                                             name="custom-input-number"
                                                             value={cartItem.quantity}
                                                             readOnly
@@ -95,9 +95,9 @@ const Cart = () => {
                                                             className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
                                                             onClick={() => increaseQty(cartItem)}
                                                         >
-                              <span className="m-auto text-2xl font-thin">
-                                +
-                              </span>
+                                                            <span className="m-auto text-2xl font-thin">
+                                                                +
+                                                            </span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -138,15 +138,15 @@ const Cart = () => {
                                             <span>Amount before Tax:</span>
                                             <span>₹{amountWithoutTax}</span>
                                         </li>
-                                        <li className="flex justify-between text-gray-600  mb-1">
+                                        <li className="flex justify-between text-themeBlue mb-1">
                                             <span>Total Units:</span>
-                                            <span className="text-green-500">
-                        {cart?.cartItems?.reduce(
-                            (acc, item) => acc + item.quantity,
-                            0
-                        )}{" "}
+                                            <span className="text-themeBlue">
+                                                {cart?.cartItems?.reduce(
+                                                    (acc, item) => acc + item.quantity,
+                                                    0
+                                                )}{" "}
                                                 (Units)
-                      </span>
+                                            </span>
                                         </li>
                                         <li className="flex justify-between text-gray-600  mb-1">
                                             <span>TAX(%)</span>
@@ -162,13 +162,13 @@ const Cart = () => {
                                         </li>
                                     </ul>
 
-                                    <a className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer">
+                                    <a className="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-themeBlue border border-transparent rounded-md hover:bg-green-700 cursor-pointer">
                                         Continue
                                     </a>
 
                                     <Link
                                         href="/"
-                                        className="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
+                                        className="px-4 py-3 inline-block text-lg w-full text-center font-medium text-themeBlue bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
                                     >
                                         Back to shop
                                     </Link>

@@ -17,10 +17,6 @@ export default function Home() {
         <div className="h-[2px] bg-gray-300 w-11/12" />
       </div>
       <FeaturedProductsServer />
-      <div className="flex justify-center py-2">
-        <div className="h-[2px] bg-gray-300 w-11/12" />
-      </div>
-      <CategoryIconRow />
       <ComparisonSlider beforeImage="/before.jpg" afterImage="/after.png" />
       <OurParteners />
       <div className="flex justify-center py-2">
