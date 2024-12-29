@@ -1,15 +1,23 @@
 'use client'
 
 import { useEffect, useState } from "react"
+import eventEmitter from "../lib/emiter"
 
 const CartIcon = () => {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        const cart = localStorage.getItem('cart')
-        if (cart) {
-            setCount(JSON.parse(cart).cartItems.length)
+        const eventHandler = () => {
+            const cart = localStorage.getItem('cart')
+            if (cart) {
+                setCount(JSON.parse(cart).cartItems.length)
+            }
         }
+        eventHandler();
+        eventEmitter.on('itemAdded', eventHandler);
+        return (() => {
+            eventEmitter.off('itemAdded', eventHandler)
+        })
     }, [])
 
     return (
