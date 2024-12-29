@@ -6,7 +6,7 @@ import AddToCartButton from "@/app/ui/AddToCartButton";
 const ProductPamphletFull = (product: product) => {
   const price = parseInt(product.price);
   const mPrice = parseInt(product.mPrice);
-  const discount = Math.round((price / mPrice) * 100)
+  const discount: number = Math.round(((parseInt(product.mPrice) - parseInt(product.price)) / parseInt(product.mPrice)) * 100)
   const image = product.images[0].url;
   const name = product.name
   const descriptionArray = product.description.split('')
