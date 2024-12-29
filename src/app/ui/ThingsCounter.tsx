@@ -21,7 +21,7 @@ const things = [
 
 const ThingsCounter = () => {
   return (
-    <div className="h-[100px] bg-white flex items-center justify-around">
+    <div className="h-[100px] bg-white flex items-center justify-around flex-wrap">
       {things.map((thing, index) => {
         return <Counter key={index}{...thing} />
       })}

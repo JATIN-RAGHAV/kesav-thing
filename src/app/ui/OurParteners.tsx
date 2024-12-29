@@ -16,7 +16,7 @@ const OurParteners = () => {
   }
 
   return (
-    <div className='my-4 h-[200px] bg-white box-border md:px-20 lg:px-40'>
+    <div className='my-4 h-[200px] bg-white box-border md:px-20 lg:px-40 overflow-y-hidden'>
       <div className='flex items-center font-bold justify-center text-4xl p-1 box-border overflow-hidden'>
         Our Partners
       </div>
