@@ -63,58 +63,54 @@ export function ComparisonSlider({
     }, [handleMove, handleLeave])
 
     return (
-        <div
-            ref={rangeRef}
-            className={cn(
-                "relative h-[280px] md:h-[600px] lg:h-[900px] w-full select-none overflow-hidden rounded-lg",
-                className
-            )}
-            {...props}
-        >
-            <div className="absolute inset-0 w-full">
-                <img
-                    src={afterImage}
-                    alt="After"
-                    className="h-full w-full object-cover"
-                />
-            </div>
+        <div className="flex justify-center">
             <div
-                className="absolute inset-0 w-full"
-                style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+                ref={rangeRef}
+                className={cn(
+                    "relative h-[280px] w-11/12 md:h-[600px] lg:h-[910px] xl:h-[] select-none overflow-hidden rounded-lg",
+                    className
+                )}
+                {...props}
             >
-                <img
-                    src={beforeImage}
-                    alt="Before"
-                    className="h-full w-full object-cover"
-                />
-            </div>
-            <div
-                className="absolute inset-y-0 cursor-ew-resize"
-                style={{ left: `calc(${position}% - 2px)` }}
-                onMouseDown={() => setIsResizing(true)}
-                onTouchStart={() => setIsResizing(true)}
-            >
-                <div className="relative h-full w-1 bg-white">
-                    <div className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-white/25 backdrop-blur-sm">
-                        <div className="flex h-full items-center justify-center gap-0.5">
-                            <div className="h-4 w-0.5 bg-white" />
-                            <div className="h-4 w-0.5 bg-white" />
+                <div className="absolute inset-0 w-full">
+                    <img
+                        src={afterImage}
+                        alt="After"
+                        className="h-full w-full "
+                    />
+                </div>
+                <div
+                    className="absolute inset-0 w-full"
+                    style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+                >
+                    <img
+                        src={beforeImage}
+                        alt="Before"
+                        className="h-full w-full "
+                    />
+                </div>
+                <div
+                    className="absolute inset-y-0 cursor-ew-resize"
+                    style={{ left: `calc(${position}% - 2px)` }}
+                    onMouseDown={() => setIsResizing(true)}
+                    onTouchStart={() => setIsResizing(true)}
+                >
+                    <div className="relative h-full w-1 bg-white">
+                        <div className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-white/25 backdrop-blur-sm">
+                            <div className="flex h-full items-center justify-center gap-0.5">
+                                <div className="h-4 w-0.5 bg-white" />
+                                <div className="h-4 w-0.5 bg-white" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="pointer-events-none absolute inset-0 flex">
-                <div
-                    className="relative w-full"
-                    style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-                >
-                    <div className="absolute left-2 top-2 rounded-md bg-black/50 px-2 py-1 text-xs text-white backdrop-blur-sm">
-                        {beforeLabel}
+                <div className="pointer-events-none absolute inset-0 flex">
+                    <div
+                        className="relative w-full"
+                        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+                    >
                     </div>
-                </div>
-                <div className="relative flex-1">
-                    <div className="absolute right-2 top-2 rounded-md bg-black/50 px-2 py-1 text-xs text-white backdrop-blur-sm">
-                        {afterLabel}
+                    <div className="relative flex-1">
                     </div>
                 </div>
             </div>
