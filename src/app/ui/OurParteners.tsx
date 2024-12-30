@@ -1,7 +1,7 @@
 'use client'
 import Slider from 'react-slick'
 
-const Parteners = ['/partner1.png', '/partner2.png', '/partner3.png', '/partner4.png', '/partner5.jpg']
+const Clients = ['/partner1.png', '/partner2.png', '/partner3.png', '/partner4.png', '/partner5.jpg']
 
 
 const OurParteners = () => {
@@ -21,7 +21,7 @@ const OurParteners = () => {
         Our Partners
       </div>
       <Slider {...settings} className='h-[150px] flex items-center bg-white' >
-        {Parteners.map((partner, index) => {
+        {Clients.map((partner, index) => {
           return <Image key={index} imgUrl={partner} />
         })}
       </Slider>

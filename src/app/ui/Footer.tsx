@@ -8,7 +8,7 @@ const footerContents = [
     header: 'About Us',
     labels: [{
       lable: 'About GuptaSwitches',
-      redirectsTo: '/',
+      redirectsTo: '/AboutUs',
     }]
   },
   {
@@ -69,7 +69,7 @@ const footerContents = [
 
 const Footer = () => {
   return (
-    <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white pb-20 md:pb-4">
+    <div className="min-h-[380px] bg-[#353332] px-5 md:px-20 py-10 text-white pb-20 md:pb-4 relative z-50">
       <div className="flex justify-between flex-col md:flex-row">
         <div className="box-border h-[50px] flex justify-center mb-4">
           <img src="/logo.png" className="h-full" />
@@ -83,12 +83,12 @@ const Footer = () => {
       </div>
       <div className="h-[0.1px] my-4 w-full bg-[#454545]"></div>
       <div>
-        <div className="flex m-1 flex-wrap gap-10 justify-evenly">
+        <div className="flex m-1 flex-wrap gap-0">
           {footerContents.map((block, index) => {
             return (
-              <div className="flex flex-col max-w-[250px] items-center" key={index}>
+              <div className="flex flex-col max-w-[250px] items-center md:items-start flex-1" key={index}>
                 <Heading>{block.header}</Heading>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center md:items-start">
                   {block.labels.map((label, index) => {
                     return <Label key={index} redirectsTo={label.redirectsTo}>{label.lable}</Label>
                   })}
@@ -96,10 +96,10 @@ const Footer = () => {
               </div>
             )
           })}
-          <div className="max-w-[250px] flex flex-col items-center">
+          <div className="flex flex-col items-center flex-1">
             <span className="font-bold text-lg">Reach Us</span>
-            <a href={process.env.GOOGLE_LOCATION} target="_blank">
-              <img src="guptaImages.png" className="h-[200px] w-[200px]" />
+            <a href={process.env.GOOGLE_LOCATION} className="max-w-[350px] max-h-[350px]" target="_blank">
+              <img src="guptaImages.png" className="h-full w-full" />
             </a>
           </div>
         </div>
