@@ -52,14 +52,17 @@ const footerContents = [
   {
     header: 'Contact ',
     labels: [{
-      lable: '+91 9717419853',
-      redirectsTo: '/',
+      lable: 'Contact Us',
+      redirectsTo: '/ContactUs',
     }, {
       lable: '+91 9311440607',
-      redirectsTo: '/',
+      redirectsTo: 'tel: +91-9311440607 (Sales)',
     }, {
       lable: '+91 9818091111',
-      redirectsTo: '/',
+      redirectsTo: 'tel: +91-9818091111 (Sales)',
+    }, {
+      lable: '+91 9717419853',
+      redirectsTo: 'tel: +91-9717419853 (Sales)'
     }, {
       lable: 'info@guptaswitchgears.com',
       redirectsTo: 'mailto:guptaswitchgears.com',

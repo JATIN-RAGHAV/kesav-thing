@@ -85,7 +85,7 @@ const Register = () => {
 
                 <button
                     type="submit"
-                    className="my-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+                    className="my-2 px-4 py-2 text-center w-full inline-block text-white bg-themeBlue hover:border rounded-md hover:bg-white hover:text-themeBlue transition-all border-themeBlue"
                 >
                     Register
                 </button>
@@ -94,7 +94,7 @@ const Register = () => {
 
                 <p className="text-center mt-5">
                     Already have an account?
-                    <Link href="/login" className="text-blue-500">
+                    <Link href="/login" className="text-themeBlue">
                         Sign in
                     </Link>
                 </p>

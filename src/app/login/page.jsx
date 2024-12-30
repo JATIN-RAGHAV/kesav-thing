@@ -14,7 +14,7 @@ const Login = () => {
     };
 
     return (
-        <div className="w-full flex justify-center items-center flex-col">
+        <div className="w-full flex justify-center items-center flex-col min-h-[500px]">
             <h1 className="text-2xl font-bold mb-4">Login</h1>
             {error && <p className="text-red-500">{error}</p>}
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-1/3">
@@ -34,7 +34,7 @@ const Login = () => {
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className="p-2 border rounded"
                 />
-                <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+                <button type="submit" className="bg-themeBlue text-white p-2 rounded">
                     Login
                 </button>
             </form>

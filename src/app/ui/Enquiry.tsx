@@ -37,7 +37,7 @@ export default function QuotationForm() {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8 p-4 max-w-7xl mx-auto" id='enquiryForm'>
+    <div className="grid lg:grid-cols-2 gap-8 p-4 max-w-7xl mx-auto bg-white rounded-lg w-full" id='enquiryForm'>
       <div className="flex flex-col items-center justify-center space-y-8 bg-themeBlue text-white p-8 rounded-lg">
         <img
           src="/logo.png"
@@ -102,7 +102,7 @@ export default function QuotationForm() {
           </div>
           <button
             type="submit"
-            className="w-full bg-themeBlue border-themeBlue hover:bg-white hover:text-themeBlue hover:border h-8 rounded-lg text-white transition-all"
+            className="w-full bg-themeBlue border-themeBlue hover:bg-white hover:text-themeBlue hover:border h-16 rounded-lg text-white transition-all text-lg"
             disabled={isLoading}
           >
             {isLoading ? 'Sending...' : 'Get Your Quotation'}
